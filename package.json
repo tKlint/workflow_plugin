@@ -1,0 +1,31 @@
+{
+  "name": "workflow_plugin",
+  "version": "1.0.0",
+  "description": "工作流程脚本[- 命令式版本发布]",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js ",
+    "build:frontend:CJ:JT:hbjt-test": "node index.js build frontend CJ JT hbjt-test",
+    "build:frontend:CJ:QK:qkbwe-uat": "node index.js build frontend CJ QK qkbwe-uat",
+
+    "build:frontend:HZ:JT:hbjt-test": "node index.js build frontend HZ JT hbjt-test",
+    "build:frontend:HZ:QK:qkbwe-uat": "node index.js build frontend HZ QK qkbwe-uat",
+
+    "build:frontend:YY:JT:hbjt-test": "node index.js build frontend YY JT hbjt-test",
+    "build:frontend:YY:QK:qkbwe-uat": "node index.js build frontend YY QK qkbwe-uat",
+
+    "build:frontend:ZC:JT:hbjt-test": "node index.js build frontend ZC JT hbjt-test",
+    "build:frontend:ZC:QK:qkbwe-uat": "node index.js build frontend ZC QK qkbwe-uat"
+
+  },
+  "keywords": [
+    "puppeteer"
+  ],
+  "author": "tklint",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "puppeteer": "^19.0.0"
+  }
+}
