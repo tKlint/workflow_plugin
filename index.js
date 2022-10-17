@@ -2,7 +2,6 @@ import runBuild from "./src/build.js";
 import dotenv from 'dotenv';
 import { setState } from "./src/utils/store.js";
 
-// const runBuild = require('./src/build')
 /**
  * 任务
  * build | release
@@ -45,7 +44,7 @@ function dispatchTask () {
     switch (task) {
         case 'build':
             console.log('开始构建任务.....');
-            runBuild(group, project, platform, targetGitBranch);
+            runBuild();
             break;
         case 'release':
             console.log('开始发布任务.....');

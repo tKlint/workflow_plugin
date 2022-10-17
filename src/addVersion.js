@@ -62,8 +62,4 @@ export default async function addVersion (page) {
     await page.type(versionInputSelector, nextVersion, {delay: 100});
 
     await page.click(submitSelector);
-    console.log('发布成功');
-    await page.close();
-    process.exit(0);
-    // await sleep(500);
 }
