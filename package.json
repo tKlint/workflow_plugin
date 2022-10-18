@@ -8,16 +8,12 @@
     "start": "node index.js ",
     "build:frontend:CJ:JT:hbjt-test": "node index.js build frontend CJ JT hbjt-test",
     "build:frontend:CJ:QK:qkbwe-uat": "node index.js build frontend CJ QK qkbwe-uat",
-
     "build:frontend:HZ:JT:hbjt-test": "node index.js build frontend HZ JT hbjt-test",
     "build:frontend:HZ:QK:qkbwe-uat": "node index.js build frontend HZ QK qkbwe-uat",
-
     "build:frontend:YY:JT:hbjt-test": "node index.js build frontend YY JT hbjt-test",
     "build:frontend:YY:QK:qkbwe-uat": "node index.js build frontend YY QK qkbwe-uat",
-
     "build:frontend:ZC:JT:hbjt-test": "node index.js build frontend ZC JT hbjt-test",
     "build:frontend:ZC:QK:qkbwe-uat": "node index.js build frontend ZC QK qkbwe-uat"
-
   },
   "keywords": [
     "puppeteer"
@@ -27,5 +23,10 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "puppeteer": "^19.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2"
   }
 }

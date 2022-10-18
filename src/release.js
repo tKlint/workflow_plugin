@@ -1,5 +1,5 @@
-import puppeteer from 'puppeteer';
+// import puppeteer from 'puppeteer';
 
 export default function runRelease() {
-    console.log('......release.....');
+  console.log('......release.....');
 }
