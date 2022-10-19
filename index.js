@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import runBuild from './src/build.js';
+import runTest from './src/test.js';
 import { setState } from './src/utils/store.js';
 
 /**
@@ -48,13 +49,9 @@ function dispatchTask() {
       break;
     case 'release':
       console.log('开始发布任务.....');
-      console.log({
-        group,
-        project,
-        platform,
-        targetGitBranch,
-      });
-      runBuild(group, project, platform, targetGitBranch);
+      break;
+    case 'test':
+      runTest();
       break;
     default:
       console.log('任务类型不支持[中断程序]', task);

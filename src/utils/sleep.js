@@ -1,5 +1,5 @@
 export default function sleep(ms) {
   return new Promise((resolve) => {
-    setTimeout(resolve(true), ms);
+    setTimeout(resolve, ms);
   });
 }

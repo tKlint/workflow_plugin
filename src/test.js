@@ -26,12 +26,7 @@ function addVersionAction(cookie, platform, qkcp_fk, branch, version) {
     method: 'POST',
   }).then(async (res) => {
     const data = await res.json();
-    if (data.status !== 'S') {
-      console.log('版本新增失敗', data.msg);
-    } else {
-      console.log('版本新增成功', data);
-    }
-    process.exit(-1);
+    console.log(data, 'data');
   });
 }
 
@@ -52,7 +47,7 @@ function getOptionsValueWithPlatform(platform, group) {
  * @param {*} userName
  * @param {*} password
  */
-export default async function runBuild() {
+export default async function runTest() {
   const {
     USER_NAME, USER_PASSWORD, ECP_URL, V_LIST_API,
   } = process.env;
@@ -67,9 +62,7 @@ export default async function runBuild() {
   });
   await page.goto(ECP_URL);
   await login(page, USER_NAME, USER_PASSWORD);
-  const {
-    group, platform, project, targetGitBranch,
-  } = getState();
+  const { group, platform, project, targetGitBranch } = getState();
   const platformOptionsValueMap = getOptionsValueWithPlatform(platform, group);
   const qkcpFk = platformOptionsValueMap[project];
   const cookies = await page.cookies();
@@ -109,7 +102,6 @@ export default async function runBuild() {
     const { message, list } = await res.json();
     if (message !== 'search success') {
       console.warn('版本查詢失敗', message);
-      process.exit(-1);
     }
     console.log(list);
 
