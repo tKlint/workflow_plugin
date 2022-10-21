@@ -6,14 +6,18 @@
   "type": "module",
   "scripts": {
     "start": "node index.js ",
-    "build:frontend:CJ:JT:hbjt-test": "node index.js build frontend CJ JT hbjt-test",
-    "build:frontend:CJ:QK:qkbwe-uat": "node index.js build frontend CJ QK qkbwe-uat",
-    "build:frontend:HZ:JT:hbjt-test": "node index.js build frontend HZ JT hbjt-test",
-    "build:frontend:HZ:QK:qkbwe-uat": "node index.js build frontend HZ QK qkbwe-uat",
-    "build:frontend:YY:JT:hbjt-test": "node index.js build frontend YY JT hbjt-test",
-    "build:frontend:YY:QK:qkbwe-uat": "node index.js build frontend YY QK qkbwe-uat",
-    "build:frontend:ZC:JT:hbjt-test": "node index.js build frontend ZC JT hbjt-test",
-    "build:frontend:ZC:QK:qkbwe-uat": "node index.js build frontend ZC QK qkbwe-uat",
+    "JT:CJ": "node index.js build frontend CJ JT",
+    "QK:CJ": "node index.js build frontend CJ QK",
+
+    "JT:HZ": "node index.js build frontend HZ JT",
+    "QK:HZ": "node index.js build frontend HZ QK",
+
+    "JT:YY": "node index.js build frontend YY JT",
+    "QK:YY": "node index.js build frontend YY QK",
+
+    "JT:ZC": "node index.js build frontend ZC JT",
+    "QK:ZC": "node index.js build frontend ZC QK",
+
     "test": "node index.js test frontend YY JT hbjt-test"
   },
   "keywords": [
