@@ -4,7 +4,7 @@
 - 如果不想看到浏览器界面或静默发布 在/src/build.js
 ```
     const browser = await puppeteer.launch({
-        headless: false
+        headless: false,
     });
     // 改为
     const browser = await puppeteer.launch();

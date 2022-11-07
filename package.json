@@ -6,19 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node index.js ",
-    "JT:CJ": "node index.js build frontend CJ JT",
-    "QK:CJ": "node index.js build frontend CJ QK",
-
-    "JT:HZ": "node index.js build frontend HZ JT",
-    "QK:HZ": "node index.js build frontend HZ QK",
-
-    "JT:YY": "node index.js build frontend YY JT",
-    "QK:YY": "node index.js build frontend YY QK",
-
-    "JT:ZC": "node index.js build frontend ZC JT",
-    "QK:ZC": "node index.js build frontend ZC QK",
-
-    "test": "node index.js test frontend YY JT hbjt-test"
+    "test": "node index.js test",
+    "update": "node ./src/system/updateEcpFk.js",
+    "JT:CJ": "node index.js build 河北建投 河北建投集团-采集端-frontend hbjt-test"
   },
   "keywords": [
     "puppeteer"
@@ -26,6 +16,9 @@
   "author": "tklint",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/parser": "^7.20.2",
+    "@babel/types": "^7.19.4",
     "dotenv": "^16.0.3",
     "node-fetch": "^3.2.10",
     "puppeteer": "^19.0.0",

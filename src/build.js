@@ -7,10 +7,11 @@ import login from './login.js';
 import * as optionsValue from './utils/const.js';
 import { getState, setState } from './utils/store.js';
 import nextVersion from './utils/version.js';
+import getFKMap from './const/getFkMap.js';
 
 const { projectJTOptionsValue, projectQKOptionsValue } = optionsValue.default;
 
-function addVersionAction(cookie, platform, qkcp_fk, branch, version) {
+function addVersionAction(cookie, platform, qkcp_fk, branch, version, retryTimes = 0) {
   fetch('http://ecp.bravowhale-uat.com:8000/ecp/rel/addVersionAdmin', {
     headers: {
       accept: 'application/json, text/javascript, */*; q=0.01',
@@ -28,10 +29,16 @@ function addVersionAction(cookie, platform, qkcp_fk, branch, version) {
     const data = await res.json();
     if (data.status !== 'S') {
       console.log('版本新增失敗', data.msg);
+      if (retryTimes >= 3) {
+        process.exit(-1);
+      } else {
+        console.log('重试: ', retryTimes);
+        addVersionAction(cookie, platform, qkcp_fk, branch, nextVersion(version), retryTimes + 1);
+      }
     } else {
       console.log('版本新增成功', data);
+      process.exit(-1);
     }
-    process.exit(-1);
   });
 }
 
@@ -70,16 +77,18 @@ export default async function runBuild() {
   const {
     group, platform, project, targetGitBranch,
   } = getState();
-  const platformOptionsValueMap = getOptionsValueWithPlatform(platform, group);
-  const qkcpFk = platformOptionsValueMap[project];
-  const cookies = await page.cookies();
+  const fkMap = getFKMap();
 
-  const platformMap = {
-    JT: '河北平台',
-    QK: '祺鲲平台',
-  };
+  const platformOptionsValueMap = getOptionsValueWithPlatform(platform, group);
+  const cookies = await page.cookies();
+  if (!fkMap[platform]) {
+    console.log(fkMap, platform);
+    console.log('平台不存在, 请更新FK Map');
+    console.log('npm run update');
+    process.exit();
+  }
+
   const cookieValue = cookies[0].value;
-  console.log(cookieValue, 'cookieValuecookieValue');
   fetch('http://ecp.bravowhale-uat.com:8000/ecp/rel/adminVersions', {
     headers: {
       accept: 'application/json, text/javascript, */*; q=0.01',
@@ -100,8 +109,8 @@ export default async function runBuild() {
         sortOrder: '',
         name: '',
         state: '-1',
-        platform: platformMap[platform],
-        qkcp_fk: qkcpFk.toString(),
+        platform,
+        qkcp_fk: fkMap[platform][project],
       },
     ),
     method: 'POST',
@@ -111,12 +120,12 @@ export default async function runBuild() {
       console.warn('版本查詢失敗', message);
       process.exit(-1);
     }
-    console.log(list);
 
     const lastVersion = list[0].name;
+    console.log('最后版本: ', lastVersion);
 
     const version = nextVersion(lastVersion);
 
-    addVersionAction(cookieValue, platformMap[platform], qkcpFk, targetGitBranch, version);
+    addVersionAction(cookieValue, platform, fkMap[platform][project], targetGitBranch, version);
   });
 }

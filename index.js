@@ -9,31 +9,22 @@ import { setState } from './src/utils/store.js';
  * 打包 | 发布
  */
 const task = process.argv[2];
+
 /**
- * 小组
- * frontend | backend
- * 前端 | 后端
+ * 平台
  */
-const group = process.argv[3];
+ const platform = process.argv[3];
 /**
- * 项目 CJ | HZ | YY | ZC
- * 采集端 核证端 运营端 | 资产端
+ * 项目
  */
 const project = process.argv[4];
 /**
- * 平台
- * JT | QK
- * 河北建投 | 祺坤
- */
-const platform = process.argv[5];
-/**
  * git分支
  */
-const targetGitBranch = process.argv[6];
+const targetGitBranch = process.argv[5];
 
 setState({
   task,
-  group,
   project,
   platform,
   targetGitBranch,
