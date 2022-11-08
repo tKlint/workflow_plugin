@@ -3,10 +3,6 @@ import { traverse } from '@babel/core';
 import fs from 'fs';
 import dotenv from 'dotenv';
 
-// const generator = require('@babel/generator').default;
-
-// fs.c
-// console.log(process.env.PWD)
 dotenv.config();
 const { PWD, SAMPLE_CODE_PATH, FK_MAP_PATH } = process.env;
 console.log(`${PWD}/${SAMPLE_CODE_PATH}`);
@@ -32,7 +28,6 @@ function matchOptionsTagValue(tag = '') {
     return result[0].split('=')[1].replace(/'|"/g, '');
   }
   return '';
-  // console.log(result[0]);
 }
 
 traverse(ast, {

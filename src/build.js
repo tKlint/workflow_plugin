@@ -2,14 +2,10 @@
 /* eslint-disable no-unused-vars */
 import puppeteer from 'puppeteer';
 import fetch from 'node-fetch';
-import child_process from 'child_process';
 import login from './login.js';
-import * as optionsValue from './utils/const.js';
-import { getState, setState } from './utils/store.js';
+import { getState } from './utils/store.js';
 import nextVersion from './utils/version.js';
 import getFKMap from './const/getFkMap.js';
-
-const { projectJTOptionsValue, projectQKOptionsValue } = optionsValue.default;
 
 function addVersionAction(cookie, platform, qkcp_fk, branch, version, retryTimes = 0) {
   fetch('http://ecp.bravowhale-uat.com:8000/ecp/rel/addVersionAdmin', {
@@ -42,17 +38,6 @@ function addVersionAction(cookie, platform, qkcp_fk, branch, version, retryTimes
   });
 }
 
-function getOptionsValueWithPlatform(platform, group) {
-  switch (platform) {
-    case 'JT':
-      return projectJTOptionsValue[group];
-    case 'QK':
-      return projectQKOptionsValue[group];
-    default:
-      return '';
-  }
-}
-
 /**
  * 登录
  * @param {puppeteer.Page} page
@@ -79,7 +64,6 @@ export default async function runBuild() {
   } = getState();
   const fkMap = getFKMap();
 
-  const platformOptionsValueMap = getOptionsValueWithPlatform(platform, group);
   const cookies = await page.cookies();
   if (!fkMap[platform]) {
     console.log(fkMap, platform);
