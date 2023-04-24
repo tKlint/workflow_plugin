@@ -8,7 +8,27 @@
     "start": "node index.js ",
     "test": "node index.js test",
     "update": "node ./src/system/updateEcpFk.js",
-    "JT:CJ": "node index.js build 河北建投 河北建投集团-采集端-frontend hbjt-test"
+    "JT:CJ-pre": "node index.js build 河北建投 河北建投集团-采集端-frontend hbjt-test",
+    "JT:ZJ-pre": "node index.js build 河北建投 河北建投集团-资金端-frontend hbjt-test",
+    "HB:CJ-pre": "node index.js build 河北平台 河北平台-采集端-frontend hb-test",
+
+    "QK:CJ-pre": "node index.js build 祺鲲平台 祺鲲中小电站-采集端-frontend qkbwe-uat",
+    "QK:YY-pre": "node index.js build 祺鲲平台 祺鲲中小电站-运营端-frontend qkbwe-uat",
+    "QK:ZJ-pre": "node index.js build 祺鲲平台 祺鲲中小电站-资金端-frontend qkbwe-uat",
+    "QK:HZ-pre": "node index.js build 祺鲲平台 祺鲲中小电站-核证端-frontend qkbwe-uat",
+    "QK:SY-pre": "node index.js build 祺鲲平台 祺鲲中小电站-溯源平台-frontend qkbwe-uat",
+
+
+    "JT:CJ-prd": "node index.js build 河北建投 河北建投集团-采集端-frontend hbjt-prd",
+    "JT:ZJ-prd": "node index.js build 河北建投 河北建投集团-资金端-frontend hbjt-prd",
+    "HB:CJ-prd": "node index.js build 河北平台 河北平台-采集端-frontend hb-prd",
+
+    "QK:CJ-prd": "node index.js build 祺鲲平台 祺鲲中小电站-采集端-frontend qkbwe-prd",
+    "QK:YY-prd": "node index.js build 祺鲲平台 祺鲲中小电站-运营端-frontend qkbwe-prd",
+    "QK:ZJ-prd": "node index.js build 祺鲲平台 祺鲲中小电站-资金端-frontend qkbwe-prd",
+    "QK:HZ-prd": "node index.js build 祺鲲平台 祺鲲中小电站-核证端-frontend qkbwe-prd",
+    "QK:SY-prd": "node index.js build 祺鲲平台 祺鲲中小电站-溯源平台-frontend qkbwe-prd"
+    
   },
   "keywords": [
     "puppeteer"

@@ -21,7 +21,7 @@
 运行
 
 `
-    npm run update
+npm run update
 `
 
 ---
