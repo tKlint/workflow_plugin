@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import runBuild from './src/build.js';
-import runTest from './src/test.js';
+// import runTest from './src/test.js';
 import { setState } from './src/utils/store.js';
 
 /**
@@ -13,7 +13,7 @@ const task = process.argv[2];
 /**
  * 平台
  */
- const platform = process.argv[3];
+const platform = process.argv[3];
 /**
  * 项目
  */
@@ -42,7 +42,7 @@ function dispatchTask() {
       console.log('开始发布任务.....');
       break;
     case 'test':
-      runTest();
+      // runTest();
       break;
     default:
       console.log('任务类型不支持[中断程序]', task);

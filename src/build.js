@@ -114,6 +114,7 @@ export default async function runBuild() {
   console.log('最后版本: ', lastVersion);
 
   const version = nextVersion(lastVersion);
+  // const version = 'v1.0.0.5.05';
   addVersionAction(cookieValue, platform, fkMap[platform][project], targetGitBranch, version);
   return true;
 }
